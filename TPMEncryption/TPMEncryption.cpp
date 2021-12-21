@@ -265,7 +265,7 @@ PBYTE GenerateRandomBytes(DWORD cbRandom) {
 	PBYTE result = NULL;
 
 	// Open the TPM-based random number generator.
-	SECURITY_STATUS status = BCryptOpenAlgorithmProvider(&hRandAlg, BCRYPT_RNG_ALGORITHM, MS_PLATFORM_CRYPTO_PROVIDER, 0);
+	SECURITY_STATUS status = BCryptOpenAlgorithmProvider(&hRandAlg, BCRYPT_RNG_ALGORITHM, MS_PRIMITIVE_PROVIDER, 0);
 	if (status != ERROR_SUCCESS) {
 		std::cerr << "Error opening RNG provider: " << std::hex << status << std::endl;
 		goto cleanup;
